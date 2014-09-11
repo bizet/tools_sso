@@ -1,0 +1,58 @@
+
+
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        font-family: 'Trebuchet MS';
+        font-size: 14px;
+        color: rgb(31, 73, 125);
+      }
+      div.context {
+        margin-left: 12px;
+        text-align: left;
+      }
+      div.context table {
+        width: 600px;
+      }
+      div.context table th,
+      div.context table td {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <p><strong>Dear Mr/Mrs <%=user.nick_name%>,</strong></p>
+    <div class="context">
+      <p>Your account has been add in Tools SSO System.<br />
+      You can use this account to sign and use the tools which company internal used.<br/>
+      (for example, Tdd Patch Management System)</p>
+      <p>Your Account Information:
+      <table>
+        <tr>
+          <th width="22%">Email: </th>
+          <td><%=user.email%></td>
+        </tr>
+        <tr>
+          <th>Nick Name: </th>
+          <td><%=user.nick_name%></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            (Default password is 'asb#1234' if you never set or change it)
+          </td>
+        </tr>
+      </table>
+      </p>
+      <p>Please user this link to active your account,<br />
+      <a href="http://<%=setting.server.host%>:<%=setting.server.port%>/user/active?id=<%=user._id%>&sec=<%=user.user_sec%>">
+        http://<%=setting.server.host%>:<%=setting.server.port%>/user/active?id=<%=user._id%>&sec=<%=user.user_sec%>
+      </a>
+      </p>
+    </div>
+    <p>
+    <strong>Thank you very much</strong>
+    </p>
+    <p><strong>LTE TOOLS TEAM</strong></p>
+  </body>
+</html>
